@@ -11,16 +11,39 @@
     <title>Free Page</title>
 </head>
 <body class="font-['Poppins']">
-    <div class="shadow-xl ">
-        <header class="flex flex-row place-content-between mx-5">
-            <div class="flex flex-row ">
-                <div class="place-content-center">
+    <div class="md:hidden shadow-xl">
+        <header class="flex justify-between items-center p-4">
+            <div class="flex items-center">
+                <button onclick="toggleMobileMenu()" class="mr-4">
                     <i class="fa-solid fa-bars text-lg"></i>
-                </div>
+                </button>
+                <img src="gambar/logo.svg" alt="Logo" class="h-10">
+            </div>
+            <div class="flex items-center space-x-4">
+                <button><i class="fa-solid fa-magnifying-glass text-lg text-slate-500"></i></button>
+                <button><i class="fa-solid fa-user text-xl"></i></button>
+            </div>
+        </header>
+        
+        <nav id="mobile-menu" class="hidden bg-white">
+            <ul class="flex flex-col text-sm text-slate-900">
+                <li class="p-4 border-b"><a href="index.html">Home</a></li>
+                <li class="p-4 border-b"><a href="biodata.html">Biodata</a></li>
+                <li class="p-4 border-b"><a href="contact_us.html">Contact Us</a></li>
+                <li class="p-4 border-b"><a href="posts.html">Additional</a></li>
+                <li class="p-4 border-b"><a href="freepage.html">Free Content</a></li>
+                <li class="p-4"><button>Add a vehicle</button></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="hidden md:block shadow-xl">
+        <header class="flex flex-row justify-between mx-5">
+            <div class="flex flex-row items-center">
                 <div class="mx-6 py-3">
-                    <img src="gambar/logo.svg" alt="Logo" class="size-24 h-10">
+                    <img src="gambar/logo.svg" alt="Logo" class="h-10">
                 </div>
-                <nav class="place-content-center">
+                <nav>
                     <ul class="text-sm flex flex-row gap-3 text-slate-900">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="biodata.html">Biodata</a></li>
@@ -30,18 +53,24 @@
                     </ul>
                 </nav>
             </div>
-            <div class="flex flex-row place-content-center gap-3">
-                <div class="text-sm font-semibold text-slate-900 place-content-center">
+            <div class="flex flex-row items-center gap-3">
+                <div class="text-sm font-semibold text-slate-900">
                     <button>Add a vehicle</button>
                 </div>
-                <div class="place-content-center mr-4">
+                <div>
                     <button><i class="fa-solid fa-magnifying-glass text-lg text-slate-500"></i></button>
                 </div>
-                <div class="place-content-center">
+                <div>
                     <button><i class="fa-solid fa-user text-xl"></i></button>
                 </div>
             </div>
         </header>
+        <script>
+            function toggleMobileMenu() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenu.classList.toggle('hidden');
+            }
+        </script>
     </div>
     
     <main class="bg-gradient-to-br from-gray-600  to-gray-700 text-white min-h-screen flex items-center justify-center p-4">
@@ -88,26 +117,26 @@
     </main>
 
     <footer class="bg-black">
-        <div class="justify-between flex flex-row px-60 py-10 border-b-2 border-slate-900 mb-3">
-            <div class="place-content-center">
-                <img src="gambar/logo-footer.svg" alt="logo" class="size-24 h-10">
+        <div class="flex flex-col md:flex-row justify-between px-5 md:px-60 py-10 border-b-2 border-slate-900 mb-3 space-y-6 md:space-y-0">
+            <div class="flex justify-center md:justify-start">
+                <img src="gambar/logo-footer.svg" alt="logo" class="h-10">
             </div>
-            <div class="flex flex-row gap-20">
-                <div class="text-white text-sm">
+            <div class="grid grid-cols-2 md:flex md:flex-row gap-6 md:gap-20 text-white text-sm">
+                <div>
                     <h3 class="font-semibold mb-3">Hours of Operation</h3>
                     <p><i class="fa-solid fa-calendar-days mb-2"></i> Monday - Friday</p>
                     <p><i class="fa-regular fa-clock mb-2"></i> 7:30A-5:30P CST</p>
                 </div>
-                <div class="text-white text-sm">
+                <div>
                     <h3 class="font-semibold mb-3">Contact Us</h3>
-                    <a href="#" class="hover:text-slate-300"><i class="fa-solid fa-phone mb-2"></i> 1-855-207-5630</a>
+                    <a href="#" class="hover:text-  slate-300"><i class="fa-solid fa-phone mb-2"></i> 1-855-207-5630</a>
                 </div>
-                <div class="text-white text-sm flex flex-col">
+                <div class="flex flex-col">
                     <h3 class="font-semibold mb-3">Website</h3>
                     <a href="https://unai.edu/" target="_blank" class="hover:text-slate-300">UNAI WEB</a>
                     <a href="https://fti.unai.edu/" target="_blank" class="hover:text-slate-300">FTI UNAI</a>
                 </div>
-                <div class="text-white text-sm flex flex-col">
+                <div class="flex flex-col">
                     <h3 class="font-semibold mb-3">Social</h3>
                     <a href="#" class="hover:text-slate-300"><i class="fa-brands fa-youtube mb-2"></i> Youtube</a>
                     <a href="#" class="hover:text-slate-300"><i class="fa-brands fa-facebook mb-2"></i> Facebook</a>
@@ -116,11 +145,13 @@
                 </div>
             </div>
         </div>
-        <div class="text-white flex flex-row text-sm justify-center gap-20 pb-5">
+        <div class="text-white flex flex-col md:flex-row text-sm justify-center items-center gap-4 md:gap-20 pb-5">
             <p class="text-gray-500 font-semibold">© 2024 GoTech</p>
-            <a href="#" class="hover:text-slate-300">Privacy Policy</a>
-            <a href="#" class="hover:text-slate-300">Terms & Conditions</a>
-            <a href="#" class="hover:text-slate-300">Support</a>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:text-slate-300">Privacy Policy</a>
+                <a href="#" class="hover:text-slate-300">Terms & Conditions</a>
+                <a href="#" class="hover:text-slate-300">Support</a>
+            </div>
         </div>
     </footer>
 </body>
